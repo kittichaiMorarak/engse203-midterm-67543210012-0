@@ -1,13 +1,85 @@
-/* (ไฟล์ CSS ที่สไตล์หน้าเว็บให้สวยงามทั้งหมดจะอยู่ในนี้) */
-body { font-family: sans-serif; background-color: #f0f2f5; margin: 0; }
-.container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-header { text-align: center; margin-bottom: 2rem; }
-h1 { color: #333; }
-#search-form { display: flex; max-width: 500px; margin: 1rem auto; }
-#search-input { flex-grow: 1; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px 0 0 4px; font-size: 1rem; }
-#search-form button { padding: 0.75rem 1.5rem; border: none; background-color: #007bff; color: white; border-radius: 0 4px 4px 0; cursor: pointer; }
-.results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
-.meal-card { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }
-.meal-card img { width: 100%; height: 200px; object-fit: cover; }
-.meal-card h3 { padding: 1rem; font-size: 1.1rem; margin: 0; }
-.placeholder, .status-message { color: #666; text-align: center; grid-column: 1 / -1; }
+/* Reset พื้นฐาน */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* ตัว body */
+  body {
+    padding: 20px;
+    background-color: #fdf6e3;
+    color: #333;
+  }
+  
+  /* หัวเรื่อง */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* ฟอร์มค้นหา */
+  #search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  #search-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    border: 2px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+  }
+  
+  #search-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    background-color: #ffb347;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #search-form button:hover {
+    background-color: #ff7e5f;
+  }
+  
+  /* Grid ของผลลัพธ์ */
+  #results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  /* การ์ดแต่ละเมนู */
+  .meal-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .meal-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .meal-card h3 {
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+  .meal-card:hover {
+    transform: translateY(-5px);
+  }
+  
