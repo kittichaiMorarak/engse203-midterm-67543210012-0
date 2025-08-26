@@ -1,68 +1,188 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* Reset พื้นฐาน */
+* {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* ตัว body */
+body {
+  padding: 20px;
+  background-color: #fdf6e3;
+  color: #333;
+}
+
+/* หัวเรื่อง */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* ฟอร์มค้นหา */
+#search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#search-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  border: 2px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+}
+
+#search-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #ffb347;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.3s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#search-form button:hover {
+  background-color: #ff7e5f;
+}
+
+/* Grid ของผลลัพธ์ */
+#results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* การ์ดแต่ละเมนู */
+.meal-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.meal-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.meal-card h3 {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.meal-card:hover {
+  transform: translateY(-5px);
+}
+/* Meal Details Styles */
+.meal-details {
+min-height: 100vh;
+padding: 2rem 0;
+}
+
+.hidden {
+display: none !important;
+}
+
+.back-button {
+background: #6c757d;
+color: white;
+border: none;
+padding: 0.75rem 1.5rem;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1rem;
+margin-bottom: 2rem;
+transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+background: #545b62;
+}
+
+.meal-details-content {
+background: white;
+border-radius: 10px;
+padding: 2rem;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.meal-header {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin-bottom: 2rem;
+}
+
+.meal-header img {
+width: 100%;
+max-width: 400px;
+border-radius: 10px;
+}
+
+.meal-info h1 {
+color: var(--primary-color, #2c3e50);
+margin-bottom: 1rem;
+}
+
+.ingredients-section, .instructions-section {
+margin: 2rem 0;
+}
+
+.ingredients-list {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 0.5rem;
+list-style: none;
+padding: 0;
+}
+
+.ingredients-list li {
+background: #f8f9fa;
+padding: 0.5rem 1rem;
+border-radius: 5px;
+border-left: 3px solid #007bff;
+}
+
+.instructions-text {
+line-height: 1.8;
+background: #f8f9fa;
+padding: 1.5rem;
+border-radius: 8px;
+white-space: pre-line;
+}
+
+.video-link {
+display: inline-block;
+background: #dc3545;
+color: white;
+text-decoration: none;
+padding: 0.75rem 1.5rem;
+border-radius: 5px;
+margin-top: 1rem;
+transition: background-color 0.3s ease;
+}
+
+.video-link:hover {
+background: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.meal-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.ingredients-list {
+    grid-template-columns: 1fr;
+}
 }
