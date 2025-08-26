@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import MealCard from './components/MealCard';
-import './style.css';
+import './App.css';
 
 function App() {
   // TODO: สร้าง state สำหรับ meals, searchTerm, isLoading, error
